@@ -36,7 +36,7 @@ v=x(elle+1:end);
 %output
 fprintf('Correnti nei lati: \n');
 for kk=1:elle
-  fprintf('%d)% 3.3f  A\n',kk,i(kk));
+  fprintf('%d)% 3.3f  A\n',kk,i(kk)); % 3.3f specifica dimensione e formato del numero
 end
 fprintf('\n');
 
@@ -50,7 +50,7 @@ fprintf('\n');
 
 % potenziale tra A e C
 PE6 = v(3)-v(1);
-fprintf('Tensione equivalente di Thevenin tra i morsetti A e C = %d \n',PE6);
+fprintf('Tensione equivalente di Thevenin tra i morsetti A e C = % 3.3f \n',PE6);
 
 
 %grafico
