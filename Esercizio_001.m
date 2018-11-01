@@ -58,6 +58,6 @@ fprintf('Potenze assorbite dai bipoli:\n');
 for kk=1:elle
     fprintf('P%d = %d\n',kk,P(kk))
 end
-fprintf('potenza totale');
-fprintf(Ptot2);
+fprintf('potenza totale = %d \n',Ptot2);
+
 
