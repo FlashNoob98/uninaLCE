@@ -28,10 +28,25 @@ b = [...
 T = [ A zeros(n-1,n-1)
     M N*A'];
 
-x=T\b
+x=T\b;
 
-i=x(1:elle)
-v=x(elle+1:end)
+i=x(1:elle);
+v=x(elle+1:end);
+
+%output
+fprintf('Correnti nei lati: \n');
+for kk=1:elle
+  fprintf('%d) : %d \n',kk,i(kk));
+end
+fprintf('\n');
+
+fprintf('Potenziali nodali: \n');
+for (kk=1:(n-1))
+  c = char(kk+64);
+  fprintf('%c) : %d \n',c,v(kk));
+end
+fprintf('\n');
+
 
 % potenziale tra A e C
 PE6 = v(3)-v(1);
