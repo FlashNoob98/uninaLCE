@@ -43,9 +43,15 @@ fprintf('\n');
 fprintf('Potenziali nodali: \n');
 for (kk=1:(n-1))
   c = char(kk+64);
-  fprintf('%c)% 3.3f  % 3.3f j V\n',c,real(v(kk)), imag(v(kk)));
+  fprintf('%c)% 3.3f  % 3.3f j  V\n',c,real(v(kk)), imag(v(kk)));
 end
 fprintf('\n');
 
+
 V=A'*v; %Potenziali ai lati
 
+fprintf('d.d.p. ai capi dei bipoli: \n');
+for kk=1:elle
+  fprintf('%d)% 3.3f  % 3.3f j  V\n',kk,real(V(kk)),imag(V(kk)));
+end
+fprintf('\n');
