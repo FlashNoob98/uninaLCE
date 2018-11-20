@@ -47,3 +47,5 @@ for (kk=1:(n-1))
 end
 fprintf('\n');
 
+V=A'*v; %Potenziali ai lati
+
