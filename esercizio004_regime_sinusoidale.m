@@ -36,14 +36,14 @@ v=x(elle+1:end);
 %output
 fprintf('Correnti nei lati: \n');
 for kk=1:elle
-  fprintf('%d)% 3.3f  A\n',kk,i(kk)); % 3.3f specifica dimensione e formato del numero
+  fprintf('%d)% 3.3f  % 3.3f j  A\n',kk,real(i(kk)),imag(i(kk))); % 3.3f specifica dimensione e formato del numero
 end
 fprintf('\n');
 
 fprintf('Potenziali nodali: \n');
 for (kk=1:(n-1))
   c = char(kk+64);
-  fprintf('%c)% 3.3f  V\n',c,v(kk));
+  fprintf('%c)% 3.3f  % 3.3f j V\n',c,real(v(kk)), imag(v(kk)));
 end
 fprintf('\n');
 
