@@ -72,7 +72,7 @@ e=x(1:n-1);
 
 v_eq=e(1)-e(3);
 
-fprintf('Tensione a vuoto v_eq=%3.3f V\n',v_eq)
+fprintf('Tensione a vuoto v_eq =% 3.3f V\n',v_eq)
 
 
 
@@ -90,11 +90,11 @@ Zm=[...
 
 bm=[-R1*i_hat -R5*i_hat].';
 
-Jm=Zm\bm;
+Jm=inv(Zm)*bm;
 
-v_hat=R1*Jm(1)+R5*Jm(2)+(R1+R5)*i_hat
+v_hat=R1*Jm(1)+R5*Jm(2)+(R1+R5)*i_hat;
 
-fprintf('Resistenza equivalente R_eq=%3.3f Ohm\n',v_hat/i_hat)
+fprintf('Resistenza equivalente R_eq =% 3.3f Ohm\n',v_hat/i_hat)
 
 
 

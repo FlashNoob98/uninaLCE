@@ -52,6 +52,29 @@ fprintf('\n');
 PE6 = v(3)-v(1);
 fprintf('Tensione equivalente di Thevenin tra i morsetti A e C = % 3.3f \n',PE6);
 
+%%%%%%%%%%%%%
+% Resistenza equivalente
+%%%%%%%%%%%%%
+
+i_hat=1;  %generatore  di prova da 1A
+
+%matrice resistori per metodo delle maglie
+Zm=[...
+    R1+R2+R3 -R3
+    -R3 R3+R5
+    ];
+
+%vettore tensioni maglia del generatore
+bm=[-R1*i_hat -R5*i_hat].';
+
+Jm=Zm\bm;  %calcolo correnti nelle due maglie
+
+v_hat=R1*Jm(1)+R5*Jm(2)+(R1+R5)*i_hat;  %tensione equivalente di thevenin 
+%(la somma è algebrica, il verso delle correnti è già calcolato nel vettore Jm)
+
+
+fprintf('Resistenza equivalente R_eq =% 3.3f Ohm\n',v_hat/i_hat)
+
 
 %grafico
 figure
