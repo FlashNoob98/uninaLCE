@@ -49,9 +49,19 @@ fprintf('\n');
 
 
 V=A'*v; %Potenziali ai lati
+P_totreal=0;
+P_totimag=0;
+Patt=[0];
 
 fprintf('d.d.p. ai capi dei bipoli: \n');
 for kk=1:elle
   fprintf('%d)% 3.3f  % 3.3f j  V\n',kk,real(V(kk)),imag(V(kk)));
-end
-fprintf('\n');
+  P_totreal=P_totreal+real(V(kk))*real(i(kk));  %potenza reale prodotto tra parte reale di tensione e corrente
+  P_totimag=P_totimag+imag(V(kk))*imag(i(kk));  %potenza complessa prodotto tra parte complessa di tensione e corrente
+  Patt(kk)=real(V(kk)*conj(i(kk)));
+  end
+
+fprintf('\nPotenza totale reale: %d W\n',P_totreal);
+fprintf('Potenza totale immaginaria: %.1d W\n',P_totimag);
+bar(Patt);  %grafico potenza attiva
+
