@@ -41,7 +41,7 @@ end
 fprintf('\n');
 
 fprintf('Potenziali nodali: \n');
-for (kk=1:(n-1))
+for kk=1:(n-1)
   c = char(kk+64);
   fprintf('%c)% 3.3f  % 3.3f j  V\n',c,real(v(kk)), imag(v(kk)));
 end
@@ -51,9 +51,9 @@ fprintf('\n');
 V=A'*v; %Potenziali ai lati
 P_totreal=0;
 P_totimag=0;
-Patt=[0];
-Preat=[0];
-Pcomp=[0];
+Patt=zeros(elle,1);
+Preat=zeros(elle,1);
+Pcomp=zeros(elle,1);
 
 
 fprintf('d.d.p. ai capi dei bipoli: \n');
@@ -64,9 +64,9 @@ for kk=1:elle
   Patt(kk)=real(V(kk)*conj(i(kk)));
   Preat(kk)=imag(V(kk)*conj(i(kk)));
   Pcomp(kk)= Patt(kk)+Preat(kk);
-  end
+end
 
-fprintf('\nPotenza totale attiva: %d W\n',P_totreal);
+fprintf('\nPotenza totale attiva: %.1d W\n',P_totreal);
 fprintf('Potenza totale reattiva: %.1d W\n',P_totimag);
 bar(Patt);  %grafico potenza attiva
 xlabel('Indice di lato')
@@ -76,4 +76,4 @@ grid on
 fprintf('\nPotenze complesse nei lati:\n')
 for kk=1:elle
   fprintf('%d)% 3.3f  % 3.3f j  W\n',kk,Patt(kk),Preat(kk));
-  end
+end
