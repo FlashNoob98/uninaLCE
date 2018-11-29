@@ -36,10 +36,10 @@ v = x(8:14); i = x(1:7);
 
 % Display dei risultati -------------------------
 disp(' Tensioni sui componenti (Modulo e fase)');
-disp([abs(v) phase(v)]);
+disp([abs(v) angle(v)]);
 pause
 disp(' Correnti nei componenti (Modulo e fase)');
-disp([abs(i) phase(i)]);
+disp([abs(i) angle(i)]);
 pause
 
 % Metodo dei potenziali nodali --------------------------------------------
@@ -50,7 +50,7 @@ e = Yn\f;
 % Display dei risultati -------------------------
 disp('Potenziali Nodali :');
 disp(['  Ampl.   ' num2str(abs(e'))]);
-disp(['  Phase ' num2str(phase(e'))]);
+disp(['  Phase ' num2str(angle(e'))]);
 pause
 
 % -------------------------------------------------------------------------
