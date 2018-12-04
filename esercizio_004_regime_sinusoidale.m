@@ -1,6 +1,6 @@
 omega=1000; R1=1; R2=2; R3=3; L4= 4e-3; Z4 = 1i*(omega*L4); C5= 500e-6; Z5 = -1i/(omega*C5); J6 = 6*exp(1i*pi/6); J7 = 7*exp(-1i*pi/4); 
 n=3; elle = 7;
-
+n_generatori=2;
 %matrice A dei collegamenti
 
 A=[...
@@ -19,7 +19,7 @@ N=diag([1 1 1 1 1 0 0]);
 
 b=[...
     zeros(n-1,1)
-    zeros(5,1)
+    zeros(elle-n_generatori,1)
     J6
     J7];
 
@@ -81,7 +81,7 @@ end
 fprintf('\nFasori delle correnti\n');
 fprintf('  Modulo   Fase\n');
 for kk=1:elle
-    fprintf('%d)% 3.3f  % 3.2f° \n',kk,abs(i(kk)),angle(i(kk))*180/pi); % 3.3f specifica dimensione e formato del numero
+    fprintf('%d)% 3.3f  % 3.2f° \n',kk,abs(i(kk)),angle(i(kk))*180/pi);
 end
 fprintf('\n');
 
