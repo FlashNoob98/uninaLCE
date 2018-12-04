@@ -81,7 +81,7 @@ end
 fprintf('\nFasori delle correnti\n');
 fprintf('  Modulo   Fase\n');
 for kk=1:elle
-    fprintf('%d)% 3.3f  % 3.3f° \n',kk,abs(i(kk)),angle(i(kk))*180/pi); % 3.3f specifica dimensione e formato del numero
-endfor
+    fprintf('%d)% 3.3f  % 3.2f° \n',kk,abs(i(kk)),angle(i(kk))*180/pi); % 3.3f specifica dimensione e formato del numero
+end
 fprintf('\n');
 
