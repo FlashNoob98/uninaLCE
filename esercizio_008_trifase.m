@@ -1,13 +1,13 @@
 %risoluzione esercizio 8 trifase
 
 omega = 314;
-C = 300e-6; 
+%C = 300e-6; 
 L=zeros(3,1);
 L(1)=0.01; L(2)=0.02; L(3)=0.04;
 R =5;
 E=zeros(3,1);
 E(1)=220; E(2)=220*exp(2j*pi/3); E(3)=220*exp(-2j*pi/3);
-XC=-1j/(omega*C);
+%XC=-1j/(omega*C);
 
 XL=zeros(3,1);
 
@@ -17,7 +17,7 @@ end
 
 Z=zeros(3,1);
 for kk=1:3 %impedenze trifase
-  Z(kk)=((R+XL(kk))*XC)/(R+XL(kk)+XC);
+  Z(kk)=R+XL(kk);
 end
 
 I=zeros(3,1);
