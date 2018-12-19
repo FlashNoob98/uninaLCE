@@ -1,8 +1,8 @@
 %transitorio con due bipoli dinamici
-R=1:6;
-L=6e-3; C=500e-6;
-omega=500;
-XL=j*omega*L; XC=-j/(omega*C);
+R=1:6; %vettore delle resistenze
+L=6e-3; C=500e-6; %bipoli dinamici
+omega=500;  %pulsazione
+XL=j*omega*L; XC=-j/(omega*C);  %impedenze
 
 %parallelo L,R2,R5
 Z2=R(5)*(XL+R(2))/(R(5)+R(2)+XL);
@@ -40,33 +40,27 @@ T = [ A zeros(n-1,n-1)
     M N*A'];
 
 x=T\b;
-
 i=x(1:elle);
 v=x(elle+1:end);
 %tensioni
 V=A'*v;
 
-
-
-
+%potenze
 P_totreal=0;
 P_totimag=0;
 Patt=zeros(elle,1);
 Preat=zeros(elle,1);
 Pcomp=zeros(elle,1);
 
-
 fprintf('d.d.p. ai capi dei bipoli: \n');
 for kk=1:elle
-  fprintf('%d)% 3.3f  % 3.3f j  V\n',kk,real(V(kk)),imag(V(kk)));
-  P_totreal=P_totreal+real((V(kk))*conj(i(kk)));  %potenza attiva prodotto tra parte reale di tensione e coniugato della corrente
-  P_totimag=P_totimag+imag((V(kk))*conj(i(kk)));  %potenza reattiva prodotto tra parte complessa di tensione e coniugato della corrente
-  Patt(kk)=real(V(kk)*conj(i(kk)));
-  Preat(kk)=imag(V(kk)*conj(i(kk)));
-  Pcomp(kk)= Patt(kk)+Preat(kk);
+  fprintf('%d)% 3.3f  % 3.3f j  V\n',kk,real(V(kk)),imag(V(kk))); 
+  Pcomp(kk)= V(kk)*conj(i((kk)));
+  P_totreal=P_totreal+real(Pcomp(kk));  %potenza attiva
+  P_totimag=P_totimag+imag(Pcomp(kk));  %potenza reattiva
+  Patt(kk)=real(Pcomp(kk));
+  Preat(kk)=imag(Pcomp(kk));
 end
-
-
 
 fprintf('\nPotenze complesse nei lati:\n')
 for kk=1:elle
