@@ -74,7 +74,7 @@ for kk=1:elle
 end
 fprintf('\n');
 
-##
+
 %corrente in L1
 IL=i(3)*R(5)/(R(5)+XL+R(2));
 %tensioni condensatore
