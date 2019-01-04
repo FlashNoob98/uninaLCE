@@ -31,5 +31,5 @@ i=x(1:elle);
 v=x(elle+1:end);
 
 fprintf("Corrente nell'induttore a regime\n");
-fprintf("% 3.2fsin(%dt% 3.2f)\n",abs(i(3)*sqrt(2)),omega,angle(i(2)));
+fprintf("% 3.2fsin(%dt% 3.2f)\n",abs(i(3)*sqrt(2)),omega,angle(i(3)));
 
