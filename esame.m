@@ -1,5 +1,5 @@
 %esercizio prova esame regime
-J=4*e^(-pi*j/4);
+J=4*exp(-pi*j/4);
 R=1:4;
 L=2e-3;
 omega=1000;
